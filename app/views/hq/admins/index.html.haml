@@ -12,7 +12,7 @@
         %a.btn{href: hq_admins_path, data: {toggle: 'toolbar-tooltip'}, title: t('view.reload')}
           %i.fa.fa-refresh
       .badge= @admins.total_entries
-  =blankable(@admins)
+  -#=blankable(@admins)
   .panel-footer
     .pagination.pagination-sm
       = will_paginate @admins, renderer: BootstrapPagination::Rails, bootstrap: 3
