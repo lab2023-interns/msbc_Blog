@@ -27,7 +27,9 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            = link_to 'Blog', root_path, class:'navbar-brand'
+            = link_to root_path, class:'navbar-brand' do
+              %i.fa.fa-home
+              Home
           / Collect the nav links, forms, and other content for toggling
           #bs-example-navbar-collapse-1.collapse.navbar-collapse
             %ul.nav.navbar-nav
@@ -36,16 +38,24 @@
                 %input.form-control{:placeholder => "Search", :type => "text"}/
               %button.btn.btn-default{:class => "fa fa-search"} 
             %ul.nav.navbar-nav.navbar-right
-              %li
-                =link_to user_registration_path do
-                  %i.fa.fa-sign-in
-                  Giriş Yap
-              %li
-                =link_to new_user_session_path do
-                  %i.fa.fa-user 
-                  Üye Ol
-          / /.navbar-collapse
-        / /.container-fluid
+              -if user_signed_in?
+                %li
+                  = link_to user_profile_path(current_user) do
+                    %i.fa.fa-user
+                    Profil Göster
+                %li
+                  = link_to destroy_user_session_path, method: :delete, class:"btn" do
+                    %i.fa.fa-sign-out
+                    Çıkış yap
+              -else
+                %li
+                  =link_to user_registration_path do
+                    %i.fa.fa-sign-in
+                    Giriş Yap
+                %li
+                  =link_to new_user_session_path do
+                    %i.fa.fa-user
+                    Üye Ol
         
       %hr/
       = render partial: 'layouts/partials/messages'
