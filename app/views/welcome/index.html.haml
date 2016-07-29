@@ -1,4 +1,7 @@
+
+
 .jumbotron
+
   %h1 Welcome to Blog
   - if current_user
     = link_to t('navbar.sign_out'), destroy_user_session_path, class: 'btn btn-large', method: :delete
