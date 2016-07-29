@@ -65,10 +65,10 @@ group :development, :test do
   gem 'katip'
   gem 'capybara'
   gem 'bullet'
-  gem 'sinatra', require: nil
   gem 'quiet_assets'
 end
 
+gem 'sinatra', require: nil
 # For heroku
 group :production, :staging do
   gem 'rails_12factor'
